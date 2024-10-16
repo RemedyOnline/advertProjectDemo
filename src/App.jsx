@@ -5,6 +5,11 @@ import About from './pages/About'
 import DashboardLayout from './layouts/DashboardLayout'
 import Overview from './pages/dashboard/Overview'
 import Settings from './pages/dashboard/Settings'
+import GithubLayout from './layouts/GithubLayout'
+import Overvieww from './components/Github/Overvieww'
+import Projects from './components/Github/Projects'
+import Repositories from './components/Github/Repositories'
+import Packages from './components/Github/Packages'
 
 function App() {
   const router = createBrowserRouter([
@@ -21,15 +26,38 @@ function App() {
       element: <DashboardLayout />,
       children: [ // children also takes an array of routes...
         { // you link the children using an outlet tag
-          path:"overview",
+          index: true, // this makes OVERVIEW the default page...
+          // path:"overview", 
           element: <Overview />
         },
         {
-          path:"settings",
+          path: "settings",
           element: <Settings />
         }
       ]
     },
+    {
+      path: "github",
+      element: <GithubLayout />,
+      children: [
+        {
+          path: "overvieww",
+          element: <Overvieww />
+        },
+        {
+          path: "projects",
+          element: <Projects />
+        },
+        {
+          path: "repositories",
+          element: <Repositories />
+        },
+        {
+          path: "packages",
+          element: <Packages />
+        }
+      ]
+    }
   ])
 
   return (

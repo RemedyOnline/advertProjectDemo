@@ -15,4 +15,4 @@ const RootLayout = ({ headerText, children }) => {
     )
 }
 
-export default RootLayout   
+export default RootLayout
